@@ -1,15 +1,24 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Serif_Text, Mona_Sans } from "next/font/google";
+import localFont from "next/font/local"
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+//Google Fonts
+const dmSerif = DM_Serif_Text({
+  variable: "--font-serif",
+  subsets: ["latin"], weight: '400',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const monaSans = Mona_Sans  ({
+    variable: "--font-sans",
+    subsets: ["latin"],
 });
+
+//Local Fonts
+const modernNegra = localFont({
+    src: "./fonts/ModernNegraDemo.ttf",
+    variable: "--font-modern-negra",
+    display: "swap"
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -20,7 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${modernNegra.variable} ${monaSans.variable} antialiased`}
       >
         {children}
       </body>
